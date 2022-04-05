@@ -11,14 +11,23 @@
 
 */
 
+body{
+    background-color: whitesmoke;
+}
+
+.boton{
+ color: red;
+ border-style: none;
+ font-size: 20px;
+ background-color: white;
+ display: none;
+}
+
 h1{
     font-size: 80px;
 }
 .bloc{
     width: 80rem;
-}
-.fondo{
-background-color: whitesmoke;
 }
 
 .bas{

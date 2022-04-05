@@ -14,49 +14,47 @@ const Home = () => {
 
 	const handleKeyDown = (event) => {
 		if (event.key === "Enter") {
-			console.log("do validate");
+			setLista([...lista, tarea]);
+			setInputs("");
 		}
 	};
 
 	return (
 		<div className="fondo">
 			<div className="container">
-				<h1 className="mx-auto">todos</h1>
-				<div className="d-flex mx-auto bloc">
+				<h1 className="row mx-auto">todos</h1>
+				<div className="d-table-row mx-auto">
 					<input
-						className="shadow basico"
+						className="shadow bas"
 						id="entradatareas"
 						value={tarea}
+						onKeyDown={handleKeyDown}
 						onChange={(e) => {
 							setInputs(e.target.value);
 						}}
 					/>
-					<button
-						type="button"
-						className="btn btn-primary ms-5"
-						onClick={() => {
-							setLista([...lista, tarea]);
-							setInputs("");
-						}}>
-						Añadir
-					</button>
+					{lista.map((items, index) => {
+						return (
+							<div className="d-flex tareas">
+								<div
+									className="shadow bas tarea border border-secondary ps-5"
+									key={index}>
+									{items}
+									<button className="boton float-end">
+										X
+									</button>
+								</div>
+							</div>
+						);
+					})}
+					<div className="shadow basico contador border border-secondary ps-2">
+						{pendiente}
+					</div>
+					<div className="shadow basico1 border border-dark mx-auto"></div>
+					<div className="shadow basico2 border border-secondary mx-auto"></div>
+					<div className="shadow basico3 border border-secondary mx-auto"></div>
 				</div>
 			</div>
-			{lista.map((items, index) => {
-				return (
-					<div
-						className="shadow bas tarea border border-secondary mx-auto ps-5"
-						key={index}>
-						{items}
-					</div>
-				);
-			})}
-			<div className="shadow basico contador border border-secondary mx-auto ps-2">
-				{pendiente}
-			</div>
-			<div className="shadow basico1 border border-dark mx-auto"></div>
-			<div className="shadow basico2 border border-secondary mx-auto"></div>
-			<div className="shadow basico3 border border-secondary mx-auto"></div>
 		</div>
 	);
 };
