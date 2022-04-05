@@ -5,8 +5,12 @@ import React, { useState } from "react";
 const Home = () => {
 	const [tarea, setInputs] = useState("");
 	const [lista, setLista] = useState([]);
-	const pendiente = lista.length
-	if(pendiente===0){pendiente="No tasks, add a task"}
+	var pendiente = lista.length;
+	if (pendiente === 0) {
+		pendiente = "No tasks, add a task";
+	} else {
+		pendiente = lista.length + " items left";
+	}
 
 	return (
 		<body className="fondo">
@@ -14,7 +18,6 @@ const Home = () => {
 				<h1 className="mx-auto">todos</h1>
 				<div className="d-flex mx-auto bloc">
 					<input
-						type="email"
 						className="basico"
 						id="entradatareas"
 						value={tarea}
@@ -24,7 +27,7 @@ const Home = () => {
 					/>
 					<button
 						type="button"
-						className="btn btn-primary"
+						className="btn btn-primary ml-5"
 						onClick={() => {
 							setLista([...lista, tarea]);
 							setInputs("");
@@ -35,12 +38,14 @@ const Home = () => {
 			</div>
 			{lista.map((items, index) => {
 				return (
-					<div className="basico" key={index}>
+					<div
+						className="basico tarea border border-secondary mx-auto"
+						key={index}>
 						{items}
 					</div>
 				);
 			})}
-			<div className="bloc basico contador">
+			<div className="basico contador border border-secondary mx-auto">
 				{pendiente}
 			</div>
 		</body>

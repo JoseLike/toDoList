@@ -15,8 +15,14 @@ h1{
     font-size: 80px;
 }
 .bloc{
-    width: 50rem;
+    width: 80rem;
 }
 .fondo{
 background-color: whitesmoke;
+}
+.basico{
+    width: 40rem;
+    height: 2rem;
+    background-color: white;
+    
 }
