@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Alertavacia from "./alerta";
+import Alertavacia from "/workspace/toDoList/src/js/component/alerta.jsx";
 
 //create your first component
 const Home = () => {
@@ -13,11 +13,18 @@ const Home = () => {
 		pendiente = lista.length + " items left";
 	}
 
+	const validacion = () => {
+		if(tarea.trim().length===0){
+			return <Alertavacia />
+		}else {
+			setLista([...lista, tarea]);
+			setInputs("");
+		}
+	};
+
 	const handleKeyDown = (event) => {
 		if (event.key === "Enter") {
-			(""==="")? <Alertavacia/>:
-			setLista([...lista, tarea])
-			setInputs("")
+			validacion()
 		}
 	};
 	const clickDelete = (index) => {
