@@ -1,5 +1,5 @@
-import { element } from "prop-types";
 import React, { useState } from "react";
+import Alertavacia from "./alerta";
 
 //create your first component
 const Home = () => {
@@ -15,12 +15,13 @@ const Home = () => {
 
 	const handleKeyDown = (event) => {
 		if (event.key === "Enter") {
-			setLista([...lista, tarea]);
-			setInputs("");
+			(""==="")? <Alertavacia/>:
+			setLista([...lista, tarea])
+			setInputs("")
 		}
 	};
-	const clickDelete = () => {
-		lista.splice(key, 1);
+	const clickDelete = (index) => {
+		lista.splice(index, 1);
 	};
 
 	const handleMouseOver = () => {
@@ -54,8 +55,14 @@ const Home = () => {
 									onMouseOut={handleMouseOut}>
 									{items}
 									<button
-										className= {display ? "d-block boton float-end":"d-none boton float-end"}
-										onClick={clickDelete}>
+										className={
+											display
+												? "d-block boton float-end"
+												: "d-none boton float-end"
+										}
+										onClick={() => {
+											clickDelete(index);
+										}}>
 										X
 									</button>
 								</div>
