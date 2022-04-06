@@ -5,7 +5,7 @@ import React, { useState } from "react";
 const Home = () => {
 	const [tarea, setInputs] = useState("");
 	const [lista, setLista] = useState([]);
-	const [display, setDisplay] = useState("none");
+	const [display, setDisplay] = useState(false);
 	var pendiente = lista.length;
 	if (pendiente === 0) {
 		pendiente = "No tasks, add a task";
@@ -20,15 +20,15 @@ const Home = () => {
 		}
 	};
 	const clickDelete = () => {
-		lista.splice(key, 1)
+		lista.splice(key, 1);
 	};
 
 	const handleMouseOver = () => {
-		setDisplay("block");
+		setDisplay(true);
 	};
 
 	const handleMouseOut = () => {
-		setDisplay("none");
+		setDisplay(false);
 	};
 
 	return (
@@ -47,16 +47,15 @@ const Home = () => {
 					/>
 					{lista.map((items, index) => {
 						return (
-							<div className="d-flex tareas">
+							<div className="d-flex tareas" key={index}>
 								<div
 									className="shadow bas tarea border border-secondary ps-5"
-									key={index}
 									onMouseOver={handleMouseOver}
 									onMouseOut={handleMouseOut}>
 									{items}
 									<button
-										className="boton float-end" onClick={clickDelete}
-										style={{ display: display }}>
+										className= {display ? "d-block boton float-end":"d-none boton float-end"}
+										onClick={clickDelete}>
 										X
 									</button>
 								</div>
