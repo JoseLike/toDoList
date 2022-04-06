@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Alertavacia from "/workspace/toDoList/src/js/component/alerta.jsx";
 
 //create your first component
 const Home = () => {
@@ -14,9 +13,11 @@ const Home = () => {
 	}
 
 	const validacion = () => {
-		if(tarea.trim().length===0){
-			return <Alertavacia />
-		}else {
+		if (tarea.trim().length === 0) {
+			alert("Tarea no valida (Vacia)");
+		} else if (lista.includes(tarea) === true) {
+			alert("Tarea no valida (Repetida)");
+		} else {
 			setLista([...lista, tarea]);
 			setInputs("");
 		}
@@ -24,7 +25,7 @@ const Home = () => {
 
 	const handleKeyDown = (event) => {
 		if (event.key === "Enter") {
-			validacion()
+			validacion();
 		}
 	};
 	const clickDelete = (index) => {
