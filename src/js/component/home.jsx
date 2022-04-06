@@ -19,6 +19,9 @@ const Home = () => {
 			setInputs("");
 		}
 	};
+	const clickDelete = () => {
+		lista.splice(key, 1)
+	};
 
 	const handleMouseOver = () => {
 		setDisplay("block");
@@ -48,10 +51,11 @@ const Home = () => {
 								<div
 									className="shadow bas tarea border border-secondary ps-5"
 									key={index}
-									onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+									onMouseOver={handleMouseOver}
+									onMouseOut={handleMouseOut}>
 									{items}
 									<button
-										className="boton float-end"
+										className="boton float-end" onClick={clickDelete}
 										style={{ display: display }}>
 										X
 									</button>
