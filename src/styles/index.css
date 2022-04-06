@@ -20,7 +20,10 @@ body{
  border-style: none;
  font-size: 20px;
  background-color: white;
- display: none;
+}
+
+.tarea:hover{
+
 }
 
 h1{

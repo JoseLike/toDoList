@@ -5,6 +5,7 @@ import React, { useState } from "react";
 const Home = () => {
 	const [tarea, setInputs] = useState("");
 	const [lista, setLista] = useState([]);
+	const [display, setDisplay]=useState("none")
 	var pendiente = lista.length;
 	if (pendiente === 0) {
 		pendiente = "No tasks, add a task";
@@ -35,12 +36,12 @@ const Home = () => {
 					/>
 					{lista.map((items, index) => {
 						return (
-							<div className="d-flex tareas">
+							<div className="d-flex tareas" onMouseOver={()=>{setDisplay(display="block")}}>
 								<div
 									className="shadow bas tarea border border-secondary ps-5"
 									key={index}>
 									{items}
-									<button className="boton float-end">
+									<button className="boton float-end" style={{'display':display}}>
 										X
 									</button>
 								</div>
