@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import Tarea from "/workspace/toDoList/src/js/component/tarea.jsx";
 
 //create your first component
 const Home = () => {
 	const [tarea, setInputs] = useState("");
 	const [lista, setLista] = useState([]);
-	const [display, setDisplay] = useState(false);
+
 	var pendiente = lista.length;
 	if (pendiente === 0) {
 		pendiente = "No tasks, add a task";
@@ -32,14 +33,6 @@ const Home = () => {
 		lista.splice(index, 1);
 	};
 
-	const handleMouseOver = () => {
-		setDisplay(true);
-	};
-
-	const handleMouseOut = () => {
-		setDisplay(false);
-	};
-
 	return (
 		<div className="fondo">
 			<div className="container">
@@ -56,25 +49,13 @@ const Home = () => {
 					/>
 					{lista.map((items, index) => {
 						return (
-							<div className="d-flex tareas" key={index}>
-								<div
-									className="shadow bas tarea border border-secondary ps-5"
-									onMouseOver={handleMouseOver}
-									onMouseOut={handleMouseOut}>
-									{items}
-									<button
-										className={
-											display
-												? "d-block boton float-end"
-												: "d-none boton float-end"
-										}
-										onClick={() => {
-											clickDelete(index);
-										}}>
-										X
-									</button>
-								</div>
-							</div>
+							<Tarea
+								key={index}
+								items={items}
+								delete={() => {
+									clickDelete(index);
+								}}
+							/>
 						);
 					})}
 					<div className="shadow basico contador border border-secondary ps-2">
