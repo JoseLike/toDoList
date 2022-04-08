@@ -29,8 +29,8 @@ const Home = () => {
 			validacion();
 		}
 	};
-	const clickDelete = (index) => {
-		lista.splice(index, 1);
+	const clickDelete = (indextarea) => {
+		setLista(() => lista.filter((value, index) => index !== indextarea));
 	};
 
 	return (
