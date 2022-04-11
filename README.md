@@ -36,7 +36,7 @@ $ npm install
 
 * La estructura del ejercicio se basa en componentes jsx de React y el uso del hook useState.
 * Se crean dos componentes. Tarea (seran als tareas que se muestren que haya introducido el usuario previamente) y el componente Home que importa tarea y envia a index el completo.
-* El codigo es basico. El usuario introduce una tarea en el input del landing page. Cuando presiona enter entra la funcion "handleKeyDown" la cual hace una callback a "validacion". Esta ultima funcion comprobara si la tarea esta vacia o si esta repetida. Si cumple ambas condiciones la insertatra en el array principal de tareas.
+* El codigo es basico. El usuario introduce una tarea en el input del landing page. Cuando presiona enter entra la funcion "handleKeyDown" la cual hace una callback a "validacion". Esta ultima funcion comprobara si la tarea esta vacia o si esta repetida. Si cumple ambas condiciones la insertara en el array principal de tareas. Al final en el landing page se muestra un contador de tareas.
 * Posteriormente en Home hay un map del array principal. el cual recorre las tareas e inserta el componente "Tarea" por cada una de ellas. Se utiliza el hook "useState" para pasarle props a ese componenete.
 * Dentro de Tarea insertamos un boton de eliminacion. el cual solo aparece al pasar el mouse por encima del componente. Al pulsar en ese boton se hace llamada a una funcion que elimina del array principal esa tarea por su indice. De esa forma en el proximo mapeao con la llamada al useState no aparecera.
 * Finalmente en Index.js se importa Home y se renderiza.

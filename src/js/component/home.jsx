@@ -16,7 +16,7 @@ const Home = () => {
 	const validacion = () => {
 		if (tarea.trim().length === 0) {
 			alert("Tarea no valida (Vacia)");
-		} else if (lista.includes(tarea) === true) {
+		} else if (lista.includes(tarea.trim()) === true) {
 			alert("Tarea no valida (Repetida)");
 		} else {
 			setLista([...lista, tarea]);
@@ -34,8 +34,8 @@ const Home = () => {
 	};
 
 	return (
-		<div className="container">
-			<h1 className="justify-content-center">todos</h1>
+		<div className="d-flex flex-column container align-items-center mx-auto">
+			<h1 className="titulo justify-content-center">todos</h1>
 			<div className="d-table-row">
 				<input
 					className="shadow bas"
