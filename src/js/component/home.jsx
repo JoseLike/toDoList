@@ -36,7 +36,6 @@ const Home = () => {
 	return (
 		<div className="container">
 			<h1 className="justify-content-center">todos</h1>
-			<div className="justify-content-center">
 			<div className="d-table-row">
 				<input
 					className="shadow bas"
