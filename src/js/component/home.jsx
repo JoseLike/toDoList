@@ -34,37 +34,36 @@ const Home = () => {
 	};
 
 	return (
-		<div className="fondo">
-			<div className="container">
-				<h1 className="row mx-auto">todos</h1>
-				<div className="d-table-row mx-auto">
-					<input
-						className="shadow bas"
-						id="entradatareas"
-						value={tarea}
-						onKeyDown={handleKeyDown}
-						onChange={(e) => {
-							setInputs(e.target.value);
-						}}
-					/>
-					{lista.map((items, index) => {
-						return (
-							<Tarea
-								key={index}
-								items={items}
-								delete={() => {
-									clickDelete(index);
-								}}
-							/>
-						);
-					})}
-					<div className="shadow basico contador border border-secondary ps-2">
-						{pendiente}
-					</div>
-					<div className="shadow basico1 border border-dark mx-auto"></div>
-					<div className="shadow basico2 border border-secondary mx-auto"></div>
-					<div className="shadow basico3 border border-secondary mx-auto"></div>
+		<div className="container">
+			<h1 className="justify-content-center">todos</h1>
+			<div className="justify-content-center">
+			<div className="d-table-row">
+				<input
+					className="shadow bas"
+					id="entradatareas"
+					value={tarea}
+					onKeyDown={handleKeyDown}
+					onChange={(e) => {
+						setInputs(e.target.value);
+					}}
+				/>
+				{lista.map((items, index) => {
+					return (
+						<Tarea
+							key={index}
+							items={items}
+							delete={() => {
+								clickDelete(index);
+							}}
+						/>
+					);
+				})}
+				<div className="shadow basico contador border border-secondary ps-2">
+					{pendiente}
 				</div>
+				<div className="shadow basico1 border border-dark mx-auto"></div>
+				<div className="shadow basico2 border border-secondary mx-auto"></div>
+				<div className="shadow basico3 border border-secondary mx-auto"></div>
 			</div>
 		</div>
 	);
